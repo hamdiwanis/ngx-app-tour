@@ -10,6 +10,14 @@
 npm install ngx-app-tour
 ```
 
+Add lib styles to your app for ex styles in angular.json:
+```
+"styles": [
+              "node_modules/ngx-app-tour/styles/styles.css",
+             ...
+            ],
+```
+
 ###  Usage
 Add in your root module:
 ```
