@@ -1,0 +1,13 @@
+{
+  "name": "ngx-app-tour",
+  "version": "1.0.0",
+  "repository": "https://github.com/hamdiwanis/ngx-app-tour.git",
+  "author": "Hamdi wanis <hamdiwanis@hotmail.com>",
+  "license": "MIT",
+  "peerDependencies": {
+    "@angular/common": "^7.0.0",
+    "@angular/core": "^7.0.0",
+    "@angular/router": "^7.0.0",
+    "rxjs": "^6.0.0"
+  }
+}

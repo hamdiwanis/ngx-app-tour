@@ -1,0 +1,76 @@
+.demo {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+}
+
+.step {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 32px;
+}
+
+.step-1 {
+    width: 100px;
+    height: 100px;
+    background: gold;
+    top: 20%;
+    left: 10%;
+}
+
+.step-2 {
+    width: 80px;
+    height: 80px;
+    background: darkred;
+    top: 45%;
+    left: 30%;
+    border-radius: 100%;
+}
+
+.step-3 {
+    width: 80px;
+    height: 80px;
+    background: green;
+    top: 15%;
+    left: 50%;
+    border-radius: 50% 0;
+}
+
+.step-4 {
+    width: 90px;
+    height: 90px;
+    background: #262626;
+    top: 35%;
+    left: 60%;
+    border-radius: 20% 20%;
+}
+
+.step-5 {
+    width: 50px;
+    height: 50px;
+    background: #1f60c0;
+    top: 55%;
+    left: 80%;
+    border-radius: 0 0 50%;
+}
+
+.start-btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    top: 90%;
+    position: absolute;
+}
+
+.start-btn {
+    position: absolute;
+    color: green;
+    border-color: green;
+    border-radius: 25px;
+    padding: 5px 10px;
+    border-width: 1.5px;
+}

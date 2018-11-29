@@ -1,0 +1,83 @@
+<ng-template
+        cdkConnectedOverlay
+        [cdkConnectedOverlayOrigin]="overlayOrigin"
+        [cdkConnectedOverlayHasBackdrop]="_hasBackdrop"
+        (backdropClick)="hide()"
+        (detach)="hide()"
+        (positionChange)="onPositionChange($event)"
+        [cdkConnectedOverlayPositions]="_positions"
+        [cdkConnectedOverlayOpen]="visible$ | async">
+    <div class="ant-popover" [ngClass]="_classMap" [ngStyle]="nzOverlayStyle" [@fadeAnimation]="''+(visible$ | async)"
+         (@fadeAnimation.done)="_afterVisibilityAnimation($event)">
+        <div class="ant-popover-content">
+            <div class="ant-popover-arrow"></div>
+            <div class="ant-popover-inner">
+                <ng-container *ngTemplateOutlet="stepTemplate || defaultTemplate; context: { step: step }"></ng-container>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #defaultTemplate let-step="step">
+    <div class="step-container" (click)="$event.stopPropagation()">
+        <div *ngIf="step?.title" class="step-title">
+            {{ step?.title }}
+        </div>
+        <div class="step-content">
+            {{ step?.content }}
+        </div>
+        <div class="step-actions">
+            <button class="step-btn" [disabled]="!tourService.hasPrev(step)" (click)="tourService.prev()">
+                <svg class="icon-btn" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                     y="0px"
+                     viewBox="0 0 477.175 477.175" style="enable-background:new 0 0 477.175 477.175;"
+                     xml:space="preserve">
+<g>
+	<path d="M145.188,238.575l215.5-215.5c5.3-5.3,5.3-13.8,0-19.1s-13.8-5.3-19.1,0l-225.1,225.1c-5.3,5.3-5.3,13.8,0,19.1l225.1,225
+		c2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4c5.3-5.3,5.3-13.8,0-19.1L145.188,238.575z"/>
+</g>
+                    <g>
+</g>
+                    <g>
+</g>
+                    <g>
+</g>
+                    <g>
+</g>
+                    <g>
+</g>
+                    <g>
+</g>
+                    <g>
+</g>
+                    <g>
+</g>
+                    <g>
+</g>
+                    <g>
+</g>
+                    <g>
+</g>
+                    <g>
+</g>
+                    <g>
+</g>
+                    <g>
+</g>
+                    <g>
+</g>
+</svg>
+            </button>
+            <button class="step-btn" [disabled]="!tourService.hasNext(step)" (click)="tourService.next()">
+                <svg class="icon-btn" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129 129"
+                     xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 129 129">
+                    <g>
+                        <path d="m40.4,121.3c-0.8,0.8-1.8,1.2-2.9,1.2s-2.1-0.4-2.9-1.2c-1.6-1.6-1.6-4.2 0-5.8l51-51-51-51c-1.6-1.6-1.6-4.2 0-5.8 1.6-1.6 4.2-1.6 5.8,0l53.9,53.9c1.6,1.6 1.6,4.2 0,5.8l-53.9,53.9z"/>
+                    </g>
+                </svg>
+            </button>
+            <button class="step-btn" (click)="tourService.end()">{{ step?.endBtnTitle }}</button>
+        </div>
+    </div>
+</ng-template>

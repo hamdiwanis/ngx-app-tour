@@ -1,0 +1,40 @@
+// The prefix to use on all css classes from ant.
+@ant-prefix             : ant;
+
+@border-radius-base     : 4px;
+
+// vertical paddings
+@padding-md    : 16px; // small containers and buttons
+
+//colors
+@border-color-split     : hsv(0, 0, 91%);  // split border inside a component
+@heading-color          : fade(#000, 85%);
+
+// Shadow
+@shadow-color           : rgba(0, 0, 0, .15);
+@box-shadow-base        : 0 2px 8px @shadow-color;
+
+// ICONFONT
+@iconfont-css-prefix    : anticon;
+
+// z-index list
+@zindex-popover         : 1030;
+
+
+// Popover
+// ---
+//** Popover body background color
+@popover-bg: #fff;
+//** Popover text color
+@popover-color: fade(#000, 65%);
+//** Popover maximum width
+@popover-min-width: 177px;
+//** Popover arrow width
+@popover-arrow-width: 6px;
+//** Popover arrow color
+@popover-arrow-color: @popover-bg;
+//** Popover outer arrow width
+//** Popover outer arrow color
+@popover-arrow-outer-color: @popover-bg;
+//** Popover distance with trigger
+@popover-distance: @popover-arrow-width + 4px;

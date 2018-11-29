@@ -1,0 +1,1 @@
+export const popUpFadeTime = 200; // ms

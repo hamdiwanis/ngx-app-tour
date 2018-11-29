@@ -1,0 +1,43 @@
+<div class="demo">
+    <div class="step step-1" tourAnchor="1">
+        <span>1</span>
+    </div>
+
+    <div class="step step-2" tourAnchor="2">
+        <span>2</span>
+    </div>
+
+    <div class="step step-3" tourAnchor="3">
+        <span>3</span>
+    </div>
+
+    <div class="step step-4" tourAnchor="4">
+        <span>4</span>
+    </div>
+
+    <div class="step step-5" tourAnchor="5">
+        <span>5</span>
+    </div>
+
+    <div class="start-btn-container">
+        <button class="start-btn" (click)="tourService.start()">Let the Great Tour Began</button>
+    </div>
+
+</div>
+
+<ng-template #stepTemplate let-step="step">
+    <div class="step-container" (click)="$event.stopPropagation()">
+        <div class="custom-step-content">
+            {{ step?.content }}
+        </div>
+        <div class="step-actions">
+            <button class="step-btn" [disabled]="!tourService.hasPrev(step)" (click)="tourService.prev()">
+                prev
+            </button>
+            <button class="step-btn" [disabled]="!tourService.hasNext(step)" (click)="tourService.next()">
+                next
+            </button>
+            <button class="step-btn" (click)="tourService.end()">{{ step?.endBtnTitle }}</button>
+        </div>
+    </div>
+</ng-template>

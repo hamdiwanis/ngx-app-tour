@@ -1,0 +1,30 @@
+.ant-popover {
+  position: relative;
+}
+.step-container {
+  min-width: 200px;
+}
+.step-title, .step-content {
+  text-align: center;
+  padding: 10px;
+  font-size: 16px;
+  border-bottom: 1px solid #8080802e;
+}
+.step-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.step-btn {
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
+
+.icon-btn{
+  height: 20px;
+  width: 20px;
+}
