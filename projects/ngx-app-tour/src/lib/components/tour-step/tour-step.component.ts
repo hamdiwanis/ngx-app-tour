@@ -9,7 +9,6 @@ import { TourService, TourState } from '../../services/tour.service';
 @Component({
   selector: 'ngx-tour-step',
   templateUrl: './tour-step.component.html',
-  styleUrls: ['./tour-step.component.css'],
   animations: [fadeAnimation]
 })
 export class TourStepComponent extends NzPopoverComponent implements OnDestroy {
