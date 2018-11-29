@@ -10,6 +10,14 @@
 npm install ngx-app-tour
 ```
 
+Add lib styles to your app for ex styles in angular.json:
+```
+"styles": [
+              "node_modules/ngx-app-tour/styles/styles.css",
+             ...
+            ],
+```
+
 ###  Usage
 Add in your root module:
 ```
@@ -89,7 +97,8 @@ Use custom step template:
             <button class="step-btn" (click)="tourService.end()">{{ step?.endBtnTitle }}</button>
         </div>
     </div>
-</ng-template>```
+</ng-template>
+```
 
 ```
     @ViewChild('stepTemplate') stepTemplate;
@@ -107,7 +116,9 @@ Use custom step template:
      // or as default template
      
      this.tourService.initialize([...], {stepTemplate: this.stepTemplate});
+     
 ```
+
 
 ### Tour Step API
 Add in your root module:

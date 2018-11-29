@@ -15,13 +15,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
     BrowserModule,
     OverlayModule,
     NgxAppTour.forRoot(),
-    RouterModule.forRoot([{
-      component: DemoComponent,
-      path: '',
-    }, {
-      redirectTo: '',
-      path: '**',
-    }]),
+    RouterModule.forRoot([{path: '',component: DemoComponent}])
   ],
 })
 export class DemoModule { }
