@@ -89,7 +89,8 @@ Use custom step template:
             <button class="step-btn" (click)="tourService.end()">{{ step?.endBtnTitle }}</button>
         </div>
     </div>
-</ng-template>```
+</ng-template>
+```
 
 ```
     @ViewChild('stepTemplate') stepTemplate;
@@ -107,7 +108,9 @@ Use custom step template:
      // or as default template
      
      this.tourService.initialize([...], {stepTemplate: this.stepTemplate});
+     
 ```
+
 
 ### Tour Step API
 Add in your root module:
