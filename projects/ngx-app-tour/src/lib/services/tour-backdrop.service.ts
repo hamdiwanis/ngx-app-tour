@@ -20,6 +20,15 @@ export class TourBackdropService {
       this.backdropElement = this.renderer.createElement('div');
       this.renderer.addClass(this.backdropElement, 'ngx-tour_backdrop');
       this.renderer.appendChild(document.body, this.backdropElement);
+
+      const styles = {
+        position: 'fixed',
+        'z-index': '100',
+      };
+
+      for (const name of Object.keys(styles)) {
+        this.renderer.setStyle(this.backdropElement, name, styles[name]);
+      }
     }
 
     this.setStyles(boundingRect, radius, color);
@@ -35,11 +44,8 @@ export class TourBackdropService {
   private setStyles(boundingRect: DOMRect, radius, color) {
     const shadowColor = color ? color : 'rgba(0, 0, 0, 0.7)';
     let styles: any = {
-      position: 'fixed',
       'box-shadow': `0 0 0 9999px ${shadowColor}`,
-      'z-index': '100',
       'border-radius': radius ? radius : '100%',
-      transition: 'transform 0.1s ease-in-out'
     };
 
     if (!this.currentBoundingRect) {
@@ -51,41 +57,34 @@ export class TourBackdropService {
         left: boundingRect.left + 'px'
       };
     } else {
-      const scaleX = boundingRect.width / this.currentBoundingRect.width;
-      const scaleY = boundingRect.height / this.currentBoundingRect.height;
 
-      const translateX = boundingRect.x - this.currentBoundingRect.x;
-      const translateY = boundingRect.y - this.currentBoundingRect.y;
+      const fromHeight = this.currentBoundingRect.height + 'px';
+      const fromWidth = this.currentBoundingRect.width + 'px';
+      const fromTop = this.currentBoundingRect.top + 'px';
+      const fromLeft = this.currentBoundingRect.left + 'px';
 
-      styles = {
-        ...styles,
-        transform: `scale(${scaleX}, ${scaleY}) translate(${translateX}px, ${translateY}px)`
-      };
+      const toHeight = boundingRect.height + 'px';
+      const toWidth = boundingRect.width + 'px';
+      const toTop = boundingRect.top + 'px';
+      const toLeft = boundingRect.left + 'px';
+
+
+      this.backdropElement.animate(
+        [
+          <any>{height: fromHeight, width: fromWidth, top: fromTop, left: fromLeft},
+          <any>{height: toHeight, width: toWidth, top: toTop, left: toLeft}
+        ], {
+          duration: popUpFadeTime,
+          easing: 'ease-in-out',
+          fill: 'forwards'
+        }
+      );
     }
 
     this.currentBoundingRect = boundingRect;
 
-    requestAnimationFrame(() => {
-      for (const name of Object.keys(styles)) {
-        this.renderer.setStyle(this.backdropElement, name, styles[name]);
-      }
-    });
-
-    setTimeout(() => {
-      styles = {
-        width: this.currentBoundingRect.width + 'px',
-        height: this.currentBoundingRect.height + 'px',
-        top: this.currentBoundingRect.top + 'px',
-        left: this.currentBoundingRect.left + 'px',
-        transition: 'none',
-        transform: 'none'
-      };
-
-      requestAnimationFrame(() => {
-        for (const name of Object.keys(styles)) {
-          this.renderer.setStyle(this.backdropElement, name, styles[name]);
-        }
-      });
-    }, popUpFadeTime);
+    for (const name of Object.keys(styles)) {
+      this.renderer.setStyle(this.backdropElement, name, styles[name]);
+    }
   }
 }

@@ -6,12 +6,13 @@ import { TourService } from 'ngx-app-tour';
   templateUrl: './demo.component.html',
   styleUrls: ['./demo.component.css']
 })
-export class DemoComponent implements AfterViewInit{
+export class DemoComponent implements AfterViewInit {
   @ViewChild('stepTemplate') stepTemplate;
 
-  constructor(public tourService: TourService) {}
+  constructor(public tourService: TourService) {
+  }
 
-  ngAfterViewInit(){
+  ngAfterViewInit() {
     this.tourService.initialize([
       {
         anchorId: '1',

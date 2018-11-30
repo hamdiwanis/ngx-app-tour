@@ -217,6 +217,12 @@ textarea {
   font-size: 16px;
   border-bottom: 1px solid #8080802e;
 }
+@media (max-width: 600px) {
+  .step-title,
+  .step-content {
+    border-width: 1.5px;
+  }
+}
 .step-actions {
   display: flex;
   align-items: center;
@@ -224,6 +230,7 @@ textarea {
 }
 .step-btn {
   border: none;
+  background: none;
   display: flex;
   align-items: center;
   justify-content: center;
