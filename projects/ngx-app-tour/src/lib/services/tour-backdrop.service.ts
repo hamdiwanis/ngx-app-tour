@@ -58,33 +58,47 @@ export class TourBackdropService {
       };
     } else {
 
-      const fromHeight = this.currentBoundingRect.height + 'px';
-      const fromWidth = this.currentBoundingRect.width + 'px';
-      const fromTop = this.currentBoundingRect.top + 'px';
-      const fromLeft = this.currentBoundingRect.left + 'px';
 
-      const toHeight = boundingRect.height + 'px';
-      const toWidth = boundingRect.width + 'px';
-      const toTop = boundingRect.top + 'px';
-      const toLeft = boundingRect.left + 'px';
+      if (this.backdropElement.animate) {
+        const fromHeight = this.currentBoundingRect.height + 'px';
+        const fromWidth = this.currentBoundingRect.width + 'px';
+        const fromTop = this.currentBoundingRect.top + 'px';
+        const fromLeft = this.currentBoundingRect.left + 'px';
 
+        const toHeight = boundingRect.height + 'px';
+        const toWidth = boundingRect.width + 'px';
+        const toTop = boundingRect.top + 'px';
+        const toLeft = boundingRect.left + 'px';
 
-      this.backdropElement.animate(
-        [
-          <any>{height: fromHeight, width: fromWidth, top: fromTop, left: fromLeft},
-          <any>{height: toHeight, width: toWidth, top: toTop, left: toLeft}
-        ], {
-          duration: popUpFadeTime,
-          easing: 'ease-in-out',
-          fill: 'forwards'
-        }
-      );
+        this.backdropElement.animate(
+          [
+            <any>{height: fromHeight, width: fromWidth, top: fromTop, left: fromLeft},
+            <any>{height: toHeight, width: toWidth, top: toTop, left: toLeft}
+          ], {
+            duration: popUpFadeTime,
+            easing: 'ease-in-out',
+            fill: 'forwards'
+          }
+        );
+      } else {
+        styles = {
+          ...styles,
+          width: boundingRect.width + 'px',
+          height: boundingRect.height + 'px',
+          top: boundingRect.top + 'px',
+          left: boundingRect.left + 'px',
+          transition: 'width 200ms ease-in-out,height 200ms ease-in-out,top 200ms ease-in-out,left 200ms ease-in-out'
+        };
+      }
+
     }
 
     this.currentBoundingRect = boundingRect;
 
     for (const name of Object.keys(styles)) {
-      this.renderer.setStyle(this.backdropElement, name, styles[name]);
+      if(this.backdropElement.style[name] !== styles[name]) {
+        this.renderer.setStyle(this.backdropElement, name, styles[name]);
+      }
     }
   }
 }
