@@ -243,4 +243,8 @@ textarea {
 button[disabled] .icon-btn {
   opacity: 0.2;
 }
+.ripple-effect.touranchor--is-active {
+  transition: box-shadow 0.5s ease-in-out;
+  z-index: 100;
+}
 /*# sourceMappingURL=styles.css.map */

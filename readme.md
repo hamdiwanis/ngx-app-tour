@@ -119,6 +119,13 @@ Use custom step template:
      
 ```
 
+Use touranchor--is-active class to style active step:
+```
+.touranchor--is-active{
+    // your styles
+}
+```
+
 
 ### Tour Step API
 Add in your root module:
@@ -138,6 +145,8 @@ Add in your root module:
 | endBtnTitle | string |
 | disableBackdrop | boolean |
 | backdropColor | string |
+| enableRippleEffect | boolean|
+| rippleColor | string|
 | backdropRadius | string |
 | stepTemplate | template |
 | placement | 'topLeft' - 'top' - 'topRight' - 'leftTop' - 'left' - 'leftBottom'

@@ -15,6 +15,8 @@ export interface IStepOption {
   disableBackdrop?: boolean;
   backdropColor?: string;
   backdropRadius?: string;
+  enableRippleEffect?: boolean;
+  rippleColor?: string;
   stepTemplate?;
   placement?: 'topLeft' | 'top' | 'topRight' | 'leftTop' | 'left' | 'leftBottom'
     | 'rightTop' | 'right'| 'rightBottom'| 'bottomLeft' | 'bottom'| 'bottomRight';

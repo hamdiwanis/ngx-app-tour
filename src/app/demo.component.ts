@@ -23,7 +23,8 @@ export class DemoComponent implements AfterViewInit {
         anchorId: '2',
         content: 'also a tour step',
         placement: 'right',
-        backdropRadius: '100%'
+        backdropRadius: '100%',
+        enableRippleEffect: true,
       }, {
         anchorId: '3',
         content: 'the last tour step',
@@ -36,15 +37,18 @@ export class DemoComponent implements AfterViewInit {
         content: 'opps i lied',
         placement: 'left',
         backdropRadius: '20% 20%',
-        backdropColor: '#e91e6385',
-        stepTemplate: this.stepTemplate
+        rippleColor: '#e91e6385',
+        stepTemplate: this.stepTemplate,
+        disableBackdrop: true,
+        enableRippleEffect: true
       },
       {
         anchorId: '5',
         content: 'this time its the last one i promise',
         placement: 'left',
         backdropRadius: '0 0 50%',
-        backdropColor: '#00968875'
+        backdropColor: '#00968875',
+        enableRippleEffect: true
       }
     ]);
   }

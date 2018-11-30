@@ -29,6 +29,7 @@ export class TourAnchorDirective implements OnInit, OnDestroy {
   public menuCloseSubscription: Subscription;
 
   @HostBinding('class.touranchor--is-active') public isActive: boolean;
+  @HostBinding('class.ripple-effect') public enableRippleEffect = false;
 
   constructor(
     public elementRef: ElementRef,
@@ -39,7 +40,8 @@ export class TourAnchorDirective implements OnInit, OnDestroy {
     private resolver: ComponentFactoryResolver,
     private tourService: TourService,
     private tourBackdrop: TourBackdropService
-  ) {}
+  ) {
+  }
 
   public ngOnInit(): void {
     const factory: ComponentFactory<TourStepComponent> = this.resolver.resolveComponentFactory(TourStepComponent);
@@ -71,12 +73,19 @@ export class TourAnchorDirective implements OnInit, OnDestroy {
       }
     }
 
+    this.enableRippleEffect = step.enableRippleEffect;
+
     this.tourStep.show();
 
     if (!step.disableBackdrop) {
       this.tourBackdrop.show(this.elementRef, step.backdropRadius, step.backdropColor);
     } else {
       this.tourBackdrop.close();
+    }
+
+    if (step.enableRippleEffect) {
+      const rippleColor = step.rippleColor ? step.rippleColor : 'rgba(0, 0, 0, 0.7)';
+      this.elementRef.nativeElement.style.boxShadow = `${rippleColor} 0px 0px 0px 100vw`;
     }
 
     step.prevBtnTitle = step.prevBtnTitle || 'Prev';
@@ -98,6 +107,11 @@ export class TourAnchorDirective implements OnInit, OnDestroy {
 
   public hideTourStep(): void {
     this.isActive = false;
+
+    if (this.enableRippleEffect) {
+      this.elementRef.nativeElement.style.boxShadow = 'none';
+    }
+
     if (this.menuCloseSubscription) {
       this.menuCloseSubscription.unsubscribe();
     }
