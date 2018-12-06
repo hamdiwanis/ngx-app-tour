@@ -30,6 +30,7 @@ export class TourAnchorDirective implements OnInit, OnDestroy {
 
   @HostBinding('class.touranchor--is-active') public isActive: boolean;
   @HostBinding('class.ripple-effect') public enableRippleEffect = false;
+  @HostBinding('class.allow-interactions') public allowInteractions = false;
 
   constructor(
     public elementRef: ElementRef,
@@ -74,6 +75,18 @@ export class TourAnchorDirective implements OnInit, OnDestroy {
     }
 
     this.enableRippleEffect = step.enableRippleEffect;
+    this.allowInteractions = step.allowInteractions;
+
+    if (step.nextOn) {
+      this.allowInteractions = true;
+
+      const onNext = () => {
+        this.elementRef.nativeElement.removeEventListener(step.nextOn, onNext);
+        this.tourService.next();
+      };
+
+      this.elementRef.nativeElement.addEventListener(step.nextOn, onNext);
+    }
 
     this.tourStep.show();
 

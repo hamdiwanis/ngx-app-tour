@@ -127,28 +127,46 @@ Use touranchor--is-active class to style active step:
 ```
 
 
-### Tour Step API
-Add in your root module:
+### Tour Step Options
+```
+export interface IStepOption {
+  stepId?: string;
+  anchorId?: string;
+  title?: string;
+  content?: string;
+  route?: string | string[] | UrlSegment[];
+  nextStep?: number | string;
+  prevStep?: number | string;
+  preventScrolling?: boolean;
+  prevBtnTitle?: string;
+  nextBtnTitle?: string;
+  endBtnTitle?: string;
+  disableBackdrop?: boolean;
+  backdropColor?: string;
+  backdropRadius?: string;
+  /* Add ripple effect tour target */
+  enableRippleEffect?: boolean;
+  rippleColor?: string;
+  /* Change step default template */
+  stepTemplate?;
+  /*  Use this to allow click, type..etc on tour target */
+  allowInteractions?: boolean; // true if you set a nextOn
+  /*  se this to wait for certn event on step target before going to the next step 
+      like click on a button or hit enter on an input */
+  nextOn?: string; // disable next btn on default template
+  placement?: 'topLeft' | 'top' | 'topRight' | 'leftTop' | 'left' | 'leftBottom'
+    | 'rightTop' | 'right'| 'rightBottom'| 'bottomLeft' | 'bottom'| 'bottomRight';
+}
+```
 
-| Prop | Type |
-| ------ | ------ |
-| stepId | string |
-| anchorId | string |
-| title | string |
-| content | string |
-| route | string - string[] - UrlSegment[] |
-| nextStep | number | string |
-| prevStep | number | string |
-| preventScrolling | boolean |
-| prevBtnTitle | string |
-| nextBtnTitle | string |
-| endBtnTitle | string |
-| disableBackdrop | boolean |
-| backdropColor | string |
-| enableRippleEffect | boolean|
-| rippleColor | string|
-| backdropRadius | string |
-| stepTemplate | template |
-| placement | 'topLeft' - 'top' - 'topRight' - 'leftTop' - 'left' - 'leftBottom'
-    - 'rightTop' - 'right' - 'rightBottom'| 'bottomLeft' - 'bottom' - 'bottomRight' |
+###Changes
 
+```
+Version 1.2.0
+
+*Add allowInteractions option on tour step
+-> Use this to allow click, type..etc on tour target
+*Add allowInteractions nextOn on tour step
+-> Use this to wait for certn event on step target before going to the next step 
+like click on a button or hit enter on an input
+```

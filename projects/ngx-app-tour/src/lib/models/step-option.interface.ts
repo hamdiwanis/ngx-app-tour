@@ -18,6 +18,8 @@ export interface IStepOption {
   enableRippleEffect?: boolean;
   rippleColor?: string;
   stepTemplate?;
+  allowInteractions?: boolean;
+  nextOn?: string;
   placement?: 'topLeft' | 'top' | 'topRight' | 'leftTop' | 'left' | 'leftBottom'
     | 'rightTop' | 'right'| 'rightBottom'| 'bottomLeft' | 'bottom'| 'bottomRight';
 }

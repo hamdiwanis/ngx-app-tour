@@ -246,5 +246,9 @@ button[disabled] .icon-btn {
 .ripple-effect.touranchor--is-active {
   transition: box-shadow 0.5s ease-in-out;
   z-index: 100;
+  box-shadow: rgba(0, 0, 0, 0.7) 0px 0px 0px 100vw;
+}
+.allow-interactions.touranchor--is-active {
+  z-index: 1200;
 }
 /*# sourceMappingURL=styles.css.map */

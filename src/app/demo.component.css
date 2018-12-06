@@ -37,6 +37,7 @@
     top: 15%;
     left: 50%;
     border-radius: 50% 0;
+    cursor: pointer;
 }
 
 .step-4 {

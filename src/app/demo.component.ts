@@ -27,10 +27,11 @@ export class DemoComponent implements AfterViewInit {
         enableRippleEffect: true,
       }, {
         anchorId: '3',
-        content: 'the last tour step',
+        content: 'the last tour step, you have to click the target it to continue',
         placement: 'left',
         backdropRadius: '50% 0',
-        backdropColor: '#673ab7a6'
+        backdropColor: '#673ab7a6',
+        nextOn: 'click'
       },
       {
         anchorId: '4',
