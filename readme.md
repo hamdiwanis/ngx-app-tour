@@ -1,6 +1,12 @@
-# Ngx-App-Tour
-
-[Demo](https://hamdiwanis.github.io/ngx-app-tour).
+<p align="center">
+  <img src="/logo.png" width="250">
+</p>
+<p align="center" style="margin-top: 40px">
+  <strong>Ngx-App-Tour</strong>
+</p>
+<p align="center">
+  <a href="https://hamdiwanis.github.io/ngx-app-tour">Demo</a>
+</p>
 
 > This library built on the great lib ngx-tour by [isaacplmann](https://github.com/isaacplmann.)  It also uses the popover component by my favourite angular ui lib [ng-zorro-antd](https://github.com/NG-ZORRO/ng-zorro-antd).
 
