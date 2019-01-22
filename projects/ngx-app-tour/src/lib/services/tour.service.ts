@@ -231,7 +231,7 @@ export class TourService<T extends IStepOption = IStepOption> {
         );
         this.end();
       } else {
-        setTimeout(() => this.showStep(step, attempt++), 100);
+        setTimeout(() => this.showStep(step, ++attempt), 100);
       }
 
       return;
