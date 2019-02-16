@@ -17,16 +17,18 @@ npm install ngx-app-tour
 ```
 
 Add lib styles to your app for ex styles in angular.json:
-```
+
+```JS
 "styles": [
-              "node_modules/ngx-app-tour/styles/styles.css",
-             ...
-            ],
+    "node_modules/ngx-app-tour/styles/styles.css",
+    ...
+],
 ```
 
 ###  Usage
 Add in your root module:
-```
+
+```JS
 @NgModule({
   imports: [
     ...
@@ -37,7 +39,7 @@ export class AppModule { }
 ```
 
 Add in every other module you use it in:
-```
+```JS
 @NgModule({
   imports: [
     ...
@@ -48,7 +50,8 @@ export class AppModule { }
 ```
 
 Add in every other module you use it in:
-```
+
+```JS
 @NgModule({
   imports: [
     ...
@@ -59,22 +62,24 @@ export class AppModule { }
 ```
 
 Mark your tour steps with tourAnchor and give it an id:
-```
+
+```HTML
 <div tourAnchor="id"></div>
 ```
 
 Enject TourService in a component:
-```
+
+```JS
 constructor(public tourService: TourService) {}
 ```
 
 Use the TourService to init tour tour:
-```
+```JS
 this.tourService.initialize(steps[], defaults);
 ```
 
 Use the TourService to control the tour:
-```
+```JS
 this.tourService.start();
 this.tourService.stop();
 this.tourService.pause();
@@ -82,12 +87,12 @@ this.tourService.resume();
 ```
 
 Use the TourService to listen for tour events:
-```
+```JS
 this.tourService.events$.subscribe(e => do something)
 ```
 
 Use custom step template:
-```
+```HTML
 <ng-template #stepTemplate let-step="step">
     <div class="step-container">
         <div class="custom-step-content">
@@ -106,7 +111,7 @@ Use custom step template:
 </ng-template>
 ```
 
-```
+```JS
     @ViewChild('stepTemplate') stepTemplate;
  
     // then use it with a single step
@@ -126,7 +131,7 @@ Use custom step template:
 ```
 
 Use touranchor--is-active class to style active step:
-```
+```CSS
 .touranchor--is-active{
     // your styles
 }
@@ -134,7 +139,7 @@ Use touranchor--is-active class to style active step:
 
 
 ### Tour Step Options
-```
+```JS
 export interface IStepOption {
   stepId?: string;
   anchorId?: string;
